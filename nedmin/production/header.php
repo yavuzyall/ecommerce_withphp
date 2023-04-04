@@ -1,3 +1,14 @@
+<?php
+include "../netting/baglan.php";
+
+//Belirli veriyi seçme işlemi.
+$ayarsor = $db->prepare("SELECT * FROM ayar WHERE ayar_id=:id");
+$ayarsor->execute(array(
+    'id' => 1
+));
+$ayarcek = $ayarsor->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,9 +71,10 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li><a href="index.php"><i class="fa fa-laptop"></i> Anasayfa</a></li>
-                                <li><a><i class="fa fa-cogs"></i> Ayarlar <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-cogs"></i>Site Ayarları <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="genel-ayar.php">Genel Ayar</a></li>
+                                        <li><a href="iletisim-ayarlar.php">İletişim Ayarları</a></li>
 
                                     </ul>
                                 </li>
